@@ -1,0 +1,38 @@
+@use "../../styles/_variables" as *;
+@use "../../styles/_mixins" as *;
+
+.card {
+  @include card;
+  @include flex-column;
+  gap: $spacing-md;
+  min-height: 160px;
+  @include transition(transform, box-shadow);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-lg;
+  @include flex-center;
+  font-size: $font-size-xl;
+}
+
+.title {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-secondary;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.value {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin: 0;
+}

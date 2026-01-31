@@ -1,0 +1,259 @@
+@use "../../../styles/_variables" as *;
+@use "../../../styles/_mixins" as *;
+
+.container {
+  padding: $spacing-2xl;
+  max-width: 1200px;
+}
+
+.backLink {
+  @include flex-start;
+  gap: $spacing-sm;
+  color: $color-text-secondary;
+  font-size: $font-size-sm;
+  margin-bottom: $spacing-lg;
+  @include transition(color);
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.header {
+  @include flex-between;
+  margin-bottom: $spacing-xl;
+
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-md;
+  }
+}
+
+.title {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  margin: 0;
+}
+
+.actions {
+  @include flex-center;
+  gap: $spacing-md;
+}
+
+.userCard {
+  background-color: $color-bg-white;
+  border-radius: $radius-md;
+  padding: $spacing-2xl $spacing-2xl 0rem $spacing-2xl;
+  box-shadow: $shadow-sm;
+  margin-bottom: $spacing-xl;
+}
+
+.userHeader {
+  display: flex;
+  //   grid-template-columns: 2fr 1fr 1fr;
+  gap: $spacing-lg;
+  padding-bottom: $spacing-xl;
+  //   border-bottom: 1px solid $color-border;
+  margin-bottom: $spacing-lg;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+}
+
+.userInfo {
+  @include flex-center;
+  gap: $spacing-lg;
+  justify-content: flex-start;
+  border-right: 1px solid $color-border;
+  padding-right: $spacing-lg;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: $radius-full;
+  background-color: $color-primary;
+  color: $color-bg-white;
+  @include flex-center;
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-semibold;
+}
+
+.userDetails {
+  @include flex-column;
+  gap: $spacing-sm;
+}
+
+.userName {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  margin: 0;
+}
+
+.userId {
+  font-size: $font-size-sm;
+  color: $color-text-light;
+  margin: 0;
+}
+
+.userTier {
+  @include flex-column;
+  gap: $spacing-sm;
+  border-right: 1px solid $color-border;
+  padding-right: $spacing-lg;
+}
+
+.tierLabel {
+  font-size: $font-size-sm;
+  color: $color-text-light;
+  margin: 0;
+}
+
+.stars {
+  @include flex-center;
+  gap: $spacing-xs;
+  justify-content: flex-start;
+}
+
+.starFilled {
+  color: $color-warning;
+  font-size: $font-size-lg;
+}
+
+.starEmpty {
+  color: $color-border;
+  font-size: $font-size-lg;
+}
+
+.userAccount {
+  @include flex-column;
+  gap: $spacing-sm;
+}
+
+.accountBalance {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin: 0;
+}
+
+.accountNumber {
+  font-size: $font-size-sm;
+  color: $color-text-light;
+  margin: 0;
+}
+
+.tabs {
+  @include flex-start;
+  gap: 0;
+  border-bottom: 1px solid $color-border;
+  overflow-x: auto;
+
+  @media (max-width: $breakpoint-md) {
+    justify-content: flex-start;
+  }
+}
+
+.tab,
+.tabActive {
+  @include button-reset;
+  padding: $spacing-md $spacing-lg;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  white-space: nowrap;
+  @include transition(color, border-color);
+  border-bottom: 2px solid transparent;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.tabActive {
+  color: $color-primary;
+  border-bottom-color: $color-primary;
+}
+
+.detailsCard {
+  background-color: $color-bg-white;
+  border-radius: $radius-md;
+  padding: $spacing-2xl;
+  box-shadow: $shadow-sm;
+}
+
+.section {
+  padding: $spacing-xl 0;
+  border-bottom: 1px solid $color-border;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.sectionTitle {
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  margin: 0 0 $spacing-lg 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: $spacing-xl;
+}
+
+.field {
+  @include flex-column;
+  gap: $spacing-xs;
+
+  label {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-regular;
+    color: $color-text-light;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  p {
+    font-size: $font-size-base;
+    color: $color-text-secondary;
+    margin: 0;
+  }
+}
+
+.guarantorSection {
+  padding: $spacing-lg 0;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid $color-border;
+  }
+}
+
+.loading,
+.error {
+  @include flex-center;
+  height: 400px;
+  font-size: $font-size-lg;
+  color: $color-text-secondary;
+}
+
+.error {
+  color: $color-error;
+}
+
+.emptyState {
+  @include flex-center;
+  padding: $spacing-3xl;
+
+  p {
+    font-size: $font-size-base;
+    color: $color-text-light;
+    margin: 0;
+  }
+}

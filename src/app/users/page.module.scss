@@ -1,0 +1,123 @@
+@use "../../styles/_variables" as *;
+@use "../../styles/_mixins" as *;
+
+.container {
+  padding: $spacing-2xl;
+}
+
+.title {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  margin-bottom: $spacing-xl;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $spacing-lg;
+  margin-bottom: $spacing-2xl;
+}
+
+.tableWrapper {
+  position: relative;
+  background-color: $color-bg-white;
+  border-radius: $radius-md;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+  margin-bottom: $spacing-lg;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  thead {
+    background-color: $color-bg-light;
+
+    th {
+      padding: $spacing-md $spacing-lg;
+      text-align: left;
+      font-size: $font-size-xs;
+      font-weight: $font-weight-semibold;
+      color: $color-text-secondary;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    .ty {
+      text-align: center;
+    }
+  }
+
+  tbody {
+    .tableRow {
+      border-bottom: 1px solid $color-border;
+      @include transition(background-color);
+
+      &:hover {
+        background-color: rgba($color-primary, 0.03);
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      td {
+        padding: $spacing-md $spacing-lg;
+        font-size: $font-size-sm;
+        color: $color-text-secondary;
+        cursor: pointer;
+
+        &:last-child {
+          cursor: default;
+        }
+      }
+    }
+  }
+}
+
+.thContent {
+  @include flex-center;
+  justify-content: space-between;
+  gap: $spacing-sm;
+}
+
+.filterButton {
+  @include button-reset;
+  padding: $spacing-xs;
+  color: $color-text-light;
+  font-size: $font-size-lg;
+  @include transition(color);
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.filterPanelWrapper {
+  position: absolute;
+  top: 50px;
+  right: $spacing-lg;
+}
+
+.menuTrigger {
+  display: inline-block;
+  padding: $spacing-xs $spacing-sm;
+  cursor: pointer;
+  font-size: $font-size-lg;
+  color: $color-text-secondary;
+  @include transition(color);
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.loading {
+  @include flex-center;
+  height: 400px;
+  font-size: $font-size-lg;
+  color: $color-text-secondary;
+}

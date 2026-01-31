@@ -1,0 +1,16 @@
+@use "../../styles/_variables" as *;
+
+.layout {
+  min-height: 100vh;
+  background-color: $color-bg-light;
+}
+
+.main {
+  margin-left: 283px;
+  margin-top: 100px;
+  min-height: calc(100vh - 100px);
+
+  @media (max-width: $breakpoint-lg) {
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,49 @@
+@use "../../styles/_variables" as *;
+@use "../../styles/_mixins" as *;
+
+.container {
+  padding: $spacing-2xl;
+}
+
+.title {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  margin-bottom: $spacing-xl;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $spacing-lg;
+  margin-bottom: $spacing-2xl;
+}
+
+.loading {
+  @include flex-center;
+  height: 400px;
+  font-size: $font-size-lg;
+  color: $color-text-secondary;
+}
+
+.quickActions {
+  @include flex-center;
+  margin-top: $spacing-2xl;
+}
+
+.viewUsersButton {
+  padding: $spacing-md $spacing-2xl;
+  background-color: $color-primary;
+  color: $color-bg-white;
+  border: none;
+  border-radius: $radius-md;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  @include transition(background-color, transform);
+
+  &:hover {
+    background-color: $color-primary-dark;
+    transform: translateY(-2px);
+  }
+}

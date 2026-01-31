@@ -1,0 +1,189 @@
+@use "../../styles/_variables" as *;
+@use "../../styles/_mixins" as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  @include flex-between;
+  padding: 0 $spacing-xl;
+  background-color: $color-bg-white;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.04);
+  z-index: $z-fixed;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 0 $spacing-md;
+  }
+}
+
+.logo {
+  @include flex-center;
+  gap: $spacing-md;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+
+  svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    span {
+      display: none;
+    }
+  }
+}
+
+.search {
+  flex: 1;
+  max-width: 400px;
+  margin: 0 $spacing-2xl;
+  display: flex;
+  border: 1px solid rgba($color-border, 0.5);
+  border-radius: $radius-md;
+  overflow: hidden;
+
+  @media (max-width: $breakpoint-lg) {
+    max-width: 300px;
+    margin: 0 $spacing-lg;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    display: none;
+  }
+}
+
+.searchInput {
+  flex: 1;
+  padding: $spacing-md;
+  border: none;
+  outline: none;
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+
+  &::placeholder {
+    color: $color-text-light;
+  }
+}
+
+.searchButton {
+  @include button-reset;
+  @include flex-center;
+  padding: 0 $spacing-lg;
+  background-color: $color-primary;
+  @include transition(background-color);
+
+  &:hover {
+    background-color: $color-primary-dark;
+  }
+
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.actions {
+  @include flex-center;
+  gap: $spacing-2xl;
+
+  @media (max-width: $breakpoint-md) {
+    gap: $spacing-lg;
+  }
+}
+
+.link {
+  color: $color-text-primary;
+  font-size: $font-size-base;
+  text-decoration: underline;
+  @include transition(color);
+
+  &:hover {
+    color: $color-primary;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    display: none;
+  }
+}
+
+.notification {
+  @include button-reset;
+  @include flex-center;
+  position: relative;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.userSection {
+  position: relative;
+}
+
+.userButton {
+  @include button-reset;
+  @include flex-center;
+  gap: $spacing-sm;
+  @include transition(opacity);
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-full;
+  background-color: $color-primary;
+  color: $color-bg-white;
+  @include flex-center;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-lg;
+}
+
+.userName {
+  color: $color-text-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+
+  @media (max-width: $breakpoint-md) {
+    display: none;
+  }
+}
+
+.arrow {
+  color: $color-text-light;
+  font-size: $font-size-xs;
+}
+
+.userMenu {
+  position: absolute;
+  top: calc(100% + $spacing-sm);
+  right: 0;
+  min-width: 150px;
+  background-color: $color-bg-white;
+  border-radius: $radius-md;
+  box-shadow: $shadow-lg;
+  padding: $spacing-sm 0;
+  z-index: $z-dropdown;
+  animation: fadeIn $transition-fast;
+}
+
+.menuItem {
+  @include button-reset;
+  width: 100%;
+  padding: $spacing-md $spacing-lg;
+  text-align: left;
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  @include transition(background-color);
+
+  &:hover {
+    background-color: $color-bg-light;
+  }
+}

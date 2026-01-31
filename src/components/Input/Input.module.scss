@@ -1,0 +1,79 @@
+@use "../../styles/_variables" as *;
+@use "../../styles/_mixins" as *;
+
+.wrapper {
+  @include flex-column;
+  gap: $spacing-sm;
+  width: 100%;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.label {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-secondary;
+  text-transform: uppercase;
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  padding: $spacing-md;
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  background-color: $color-bg-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  @include transition(border-color, box-shadow);
+
+  &::placeholder {
+    color: $color-text-light;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+  }
+
+  &.error {
+    border-color: $color-error;
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($color-error, 0.1);
+    }
+  }
+
+  &.withIcon {
+    padding-left: calc($spacing-xl + $spacing-md);
+  }
+
+  &:disabled {
+    background-color: $color-bg-light;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+.icon {
+  position: absolute;
+  left: $spacing-md;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $color-text-light;
+  pointer-events: none;
+  @include flex-center;
+}
+
+.errorMessage {
+  font-size: $font-size-xs;
+  color: $color-error;
+  margin-top: $spacing-xs;
+}

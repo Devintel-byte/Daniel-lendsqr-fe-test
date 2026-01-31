@@ -1,0 +1,61 @@
+@use "../../styles/_variables" as *;
+@use "../../styles/_mixins" as *;
+
+.dropdown {
+  position: relative;
+}
+
+.trigger {
+  @include button-reset;
+  cursor: pointer;
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + $spacing-sm);
+  min-width: 180px;
+  background-color: $color-bg-white;
+  border-radius: $radius-md;
+  box-shadow: $shadow-xl;
+  padding: $spacing-sm 0;
+  z-index: $z-dropdown;
+  animation: fadeIn $transition-fast;
+
+  &.left {
+    left: 0;
+  }
+
+  &.right {
+    right: 0;
+  }
+}
+
+.item {
+  @include button-reset;
+  @include flex-center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: $spacing-md $spacing-lg;
+  gap: $spacing-md;
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  @include transition(background-color);
+
+  &:hover {
+    background-color: $color-bg-light;
+  }
+
+  &.danger {
+    color: $color-error;
+
+    &:hover {
+      background-color: rgba($color-error, 0.1);
+    }
+  }
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  @include flex-center;
+}

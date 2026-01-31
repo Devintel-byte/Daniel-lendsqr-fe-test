@@ -1,0 +1,64 @@
+@use "../../styles/_variables" as *;
+@use "../../styles/_mixins" as *;
+
+.panel {
+  position: relative;
+  top: 100%;
+  left: -850px !important;
+  margin-top: $spacing-sm;
+  width: 270px;
+  background-color: $color-bg-white;
+  border-radius: $radius-md;
+  box-shadow: $shadow-xl;
+  padding: $spacing-lg;
+  z-index: $z-dropdown;
+  animation: slideUp $transition-fast;
+}
+
+.form {
+  @include flex-column;
+  gap: $spacing-md;
+}
+
+.field {
+  @include flex-column;
+  gap: $spacing-xs;
+
+  label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text-secondary;
+  }
+}
+
+.input,
+.select {
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  background-color: $color-bg-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  @include transition(border-color);
+
+  &::placeholder {
+    color: $color-text-light;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+  }
+}
+
+.select {
+  cursor: pointer;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-md;
+  margin-top: $spacing-sm;
+}
